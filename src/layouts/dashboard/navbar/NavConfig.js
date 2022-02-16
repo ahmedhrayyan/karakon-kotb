@@ -1,42 +1,41 @@
 // components
+import {Book, Home, LocalLibrary, School} from "@mui/icons-material";
 import SvgIconStyle from '../../../components/SvgIconStyle';
 
 // ----------------------------------------------------------------------
 
-const getIcon = (name) => <SvgIconStyle src={`/icons/${name}.svg`} sx={{ width: 1, height: 1 }} />;
+const getIcon = (name) => <SvgIconStyle src={`/icons/${name}.svg`} sx={{width: 1, height: 1}}/>;
 
 const ICONS = {
-  user: getIcon('ic_user'),
-  ecommerce: getIcon('ic_ecommerce'),
-  analytics: getIcon('ic_analytics'),
-  dashboard: getIcon('ic_dashboard'),
+  edu: <School/>,
+  home: <Home/>,
+  book: <Book/>,
+  novel: <LocalLibrary/>
 };
 
 const sidebarConfig = [
   // GENERAL
   // ----------------------------------------------------------------------
   {
-    subheader: 'general v3.0.0',
     items: [
-      { title: 'One', path: '/dashboard/one', icon: ICONS.dashboard },
-      { title: 'Two', path: '/dashboard/two', icon: ICONS.ecommerce },
-      { title: 'Three', path: '/dashboard/three', icon: ICONS.analytics },
+      {title: 'Home', path: '/', icon: ICONS.home},
+      {title: 'Books', path: '/books', icon: ICONS.book},
+      {title: 'Novels', path: '/novels', icon: ICONS.novel},
     ],
   },
 
-  // MANAGEMENT
+  // Education
   // ----------------------------------------------------------------------
   {
-    subheader: 'management',
     items: [
       {
-        title: 'user',
-        path: '/dashboard/user',
-        icon: ICONS.user,
+        title: 'Education',
+        path: "/edu",
+        icon: ICONS.edu,
         children: [
-          { title: 'Four', path: '/dashboard/user/four' },
-          { title: 'Five', path: '/dashboard/user/five' },
-          { title: 'Six', path: '/dashboard/user/six' },
+          {title: 'Kindergarten', path: '/edu/kindergarten'},
+          {title: 'Primary', path: '/edu/primary'},
+          {title: 'Secondary', path: '/edu/secondary'},
         ],
       },
     ],
